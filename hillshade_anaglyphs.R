@@ -1,6 +1,6 @@
-# Anaglyph calculation from a DEM
+# Anaglyph calculation from a hillshade map
 # www.overfitting.net
-# https://www.overfitting.net/2024/04/proyeccion-de-sombras-sobre-un-dem-con-r.html
+# https://www.overfitting.net/2024/08/anaglifos-de-un-mapa-de-elevacion-con-r.html
 
 library(tiff)  # save 16-bit TIFF's
 
