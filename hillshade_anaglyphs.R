@@ -9,12 +9,13 @@ library(tiff)  # save 16-bit TIFF's
 
 # Create left/right images by slicing the DEM to left/right
 
-ALTMAX=3718  # Teide
-NSLICES=50  # pixels
+ALTMAX=3718  # Teide altitude (m)
+NSLICES=50  # pixels to control anaglyph perceived height
 
 for (orientation in c('izqcolor', 'dercolor')) {
     print("----------------------------------------------")
     print(paste0("Calculation orientation: ", orientation))
+    
     DEM=readTIFF(paste0("DEM", orientation, ".tif"))*ALTMAX
     composite=readTIFF(paste0("composite", orientation, ".tif"))
     R=composite[,,1]
@@ -68,5 +69,3 @@ der=readTIFF("stepmapdercolor.tif")
 anaglyph=izq^(1/Gamma)
 anaglyph[,,2:3]=der[,,2:3]
 writeTIFF(anaglyph, "anaglifocolor.tif", bits.per.sample=16, compression="LZW")
-
-
